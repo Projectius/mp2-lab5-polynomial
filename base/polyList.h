@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include<iostream>
 
@@ -120,7 +120,7 @@ public:
 			}
 			throw "Inserting existing monomial";
 		}
-		//åñëè ñþäà áðîñèëî èñêëþ÷åíèå òî ýòî òî êîòîðîå âûøå
+		//ÐµÑÐ»Ð¸ ÑÑŽÐ´Ð° Ð±Ñ€Ð¾ÑÐ¸Ð»Ð¾ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ñ‚Ð¾ ÑÑ‚Ð¾ Ñ‚Ð¾ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð²Ñ‹ÑˆÐµ
 		mNode* n = new mNode(mon);
 
 		if (p)
@@ -198,30 +198,30 @@ Polynom operator+(Polynom& p1, Polynom& p2)
 
 	while (p1Node || p2Node)
 	{
-		if (!p1Node) // Åñëè p1 çàêîí÷èëñÿ, äîáàâëÿåì îñòàâøèåñÿ èç p2
+		if (!p1Node) // Ð•ÑÐ»Ð¸ p1 Ð·Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ð»ÑÑ, Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð¾ÑÑ‚Ð°Ð²ÑˆÐ¸ÐµÑÑ Ð¸Ð· p2
 		{
 			result.insert(p2Node->m);
 			p2Node = p2Node->next;
 		}
-		else if (!p2Node) // Åñëè p2 çàêîí÷èëñÿ, äîáàâëÿåì îñòàâøèåñÿ èç p1
+		else if (!p2Node) // Ð•ÑÐ»Ð¸ p2 Ð·Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ð»ÑÑ, Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð¾ÑÑ‚Ð°Ð²ÑˆÐ¸ÐµÑÑ Ð¸Ð· p1
 		{
 			result.insert(p1Node->m);
 			p1Node = p1Node->next;
 		}
-		else if (p1Node->m.degs > p2Node->m.degs) // Ñòåïåíü òåêóùåãî ìîíîìà p1 áîëüøå
+		else if (p1Node->m.degs > p2Node->m.degs) // Ð¡Ñ‚ÐµÐ¿ÐµÐ½ÑŒ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð¼Ð¾Ð½Ð¾Ð¼Ð° p1 Ð±Ð¾Ð»ÑŒÑˆÐµ
 		{
 			result.insert(p1Node->m);
 			p1Node = p1Node->next;
 		}
-		else if (p1Node->m.degs < p2Node->m.degs) // Ñòåïåíü òåêóùåãî ìîíîìà p2 áîëüøå
+		else if (p1Node->m.degs < p2Node->m.degs) // Ð¡Ñ‚ÐµÐ¿ÐµÐ½ÑŒ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð¼Ð¾Ð½Ð¾Ð¼Ð° p2 Ð±Ð¾Ð»ÑŒÑˆÐµ
 		{
 			result.insert(p2Node->m);
 			p2Node = p2Node->next;
 		}
-		else // Ñòåïåíè ðàâíû, íóæíî ñëîæèòü êîýôôèöèåíòû
+		else // Ð¡Ñ‚ÐµÐ¿ÐµÐ½Ð¸ Ñ€Ð°Ð²Ð½Ñ‹, Ð½ÑƒÐ¶Ð½Ð¾ ÑÐ»Ð¾Ð¶Ð¸Ñ‚ÑŒ ÐºÐ¾ÑÑ„Ñ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚Ñ‹
 		{
 			int newCoef = p1Node->m.c + p2Node->m.c;
-			if (newCoef != 0) // Äîáàâëÿåì òîëüêî íåíóëåâûå ìîíîìû
+			if (newCoef != 0) // Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð½ÐµÐ½ÑƒÐ»ÐµÐ²Ñ‹Ðµ Ð¼Ð¾Ð½Ð¾Ð¼Ñ‹
 			{
 				result.insert(Monom(newCoef,
 					p1Node->m.degOf(1),

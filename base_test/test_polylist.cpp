@@ -23,13 +23,14 @@ TEST(polyList, can_fill_polynom)
 		Monom n(55, 0, 0, 0);
 		Monom b(-33, 4, 0, 3);
 		Polynom p;
-		cout << p<<endl;
+		//cout << p<<endl;
 		p.insert(m);
 		p.insert(n);
 		p.insert(b);
-		cout << p;
+		//cout << p;
 	}
-	catch (char* e) { cout << e; }
+	catch (char* e) { //cout << e; 
+	}
 	ASSERT_NO_THROW();
 }
 
@@ -61,15 +62,6 @@ TEST(polyList, throw_insert_exsisting)
 
 }
 
-TEST(polyList, t)
-{
-
-	Polynom p;
-	p.insert(Monom(44, 0, 0, 0));
-	cout << p;
-
-	ASSERT_NO_THROW();
-}
 
 TEST(polyList, can_add_polynoms)
 {
@@ -90,7 +82,7 @@ TEST(polyList, can_add_polynoms)
 	p2.insert(v2);
 	Polynom p3(p + p2);
 	ASSERT_NO_THROW();
-	cout << p3 << endl;
+	//cout << p3 << endl;
 
 	ostringstream o1;
 	o1 << p3;
@@ -118,7 +110,7 @@ TEST(polyList, can_sub_polynoms)
 	p2.insert(v2);
 	Polynom p3(p - p2);
 	ASSERT_NO_THROW();
-	cout << p3 << endl;
+	//cout << p3 << endl;
 
 	ostringstream o1;
 	o1 << p3;
@@ -139,7 +131,7 @@ TEST(polyList, can_mul_polynom)
 
 	Polynom p3(p*2);
 	ASSERT_NO_THROW();
-	cout << p3 << endl;
+	//cout << p3 << endl;
 
 	ostringstream o1;
 	o1 << p3;

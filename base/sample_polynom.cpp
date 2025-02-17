@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 #include"polyList.h"
 #include <string>
 #include <sstream>
@@ -23,7 +23,7 @@ Polynom parsePolynomial(const string& input) {
         coef = 0; x = 0; y = 0; z = 0;
         negative = false;
 
-        // Читаем знак перед мономом
+        // Р§РёС‚Р°РµРј Р·РЅР°Рє РїРµСЂРµРґ РјРѕРЅРѕРјРѕРј
         if (stream.peek() == '+') {
             stream.get();
         }
@@ -34,16 +34,16 @@ Polynom parsePolynomial(const string& input) {
 
         stream >> ws;
 
-        // Читаем коэффициент
+        // Р§РёС‚Р°РµРј РєРѕСЌС„С„РёС†РёРµРЅС‚
         while (isdigit(stream.peek())) {
             coef = coef * 10 + (stream.get() - '0');
         }
         if (negative) coef = -coef;
 
-        // Если коэффициент отсутствует, он равен 1 или -1
+        // Р•СЃР»Рё РєРѕСЌС„С„РёС†РёРµРЅС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚, РѕРЅ СЂР°РІРµРЅ 1 РёР»Рё -1
         if (coef == 0) coef = (negative ? -1 : 1);
 
-        // Читаем степени переменных
+        // Р§РёС‚Р°РµРј СЃС‚РµРїРµРЅРё РїРµСЂРµРјРµРЅРЅС‹С…
         while (isalpha(stream.peek())) {
             //cout << "pvar: " << char(stream.peek()) << endl;
             ch = stream.get();
@@ -61,14 +61,14 @@ Polynom parsePolynomial(const string& input) {
                 }
             }
             else {
-                *target = 1; // Если степень не указана то она равна 1
+                *target = 1; // Р•СЃР»Рё СЃС‚РµРїРµРЅСЊ РЅРµ СѓРєР°Р·Р°РЅР° С‚Рѕ РѕРЅР° СЂР°РІРЅР° 1
             }
         }
 
 
         result.insert(Monom(coef, x, y, z));
 
-        // Пропускаем пробелы после монома
+        // РџСЂРѕРїСѓСЃРєР°РµРј РїСЂРѕР±РµР»С‹ РїРѕСЃР»Рµ РјРѕРЅРѕРјР°
         //cout << stream.str() << endl;
        /* while (stream.peek() == ' ')
         {
@@ -90,7 +90,7 @@ Polynom parsePolynomial(const string& input) {
 
 
 int main() {
-    vector<Polynom> v; // Хранилище полиномов
+    vector<Polynom> v; // РҐСЂР°РЅРёР»РёС‰Рµ РїРѕР»РёРЅРѕРјРѕРІ
     string input;
 
     while (true) {
@@ -101,7 +101,7 @@ int main() {
 
         try {
             if (input == "lib") {
-                // Показать список полиномов
+                // РџРѕРєР°Р·Р°С‚СЊ СЃРїРёСЃРѕРє РїРѕР»РёРЅРѕРјРѕРІ
                 cout << "Polynomial library:\n";
                 for (size_t i = 0; i < v.size(); ++i) {
                     cout << i + 1 << ": " << v[i] << "\n";
@@ -157,7 +157,7 @@ int main() {
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
             else {
-                // Попытка парсинга как полинома
+                // РџРѕРїС‹С‚РєР° РїР°СЂСЃРёРЅРіР° РєР°Рє РїРѕР»РёРЅРѕРјР°
                 try {
                     Polynom p = parsePolynomial(input);
                     v.push_back(p);
